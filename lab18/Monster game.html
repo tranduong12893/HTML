@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monster game</title>
+    <style type="text/css">
+        body{
+            min-height: 200px;
+            background-color: #171a1d;
+            position: relative;
+        }
+        #center{
+            position: absolute;
+            z-index: 1;
+            left: 500px;
+            display: block;
+        }
+        #head{
+            width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #head h3{
+            color: #155724;
+            text-align: center;
+        }
+        #head img{
+            margin-left: 110px;
+        }
+        #background{
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 745px;
+            position: absolute;
+        }
+        #frame{
+            width: 546px;
+            height: 629px;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url("monster game project/images/frame.png");
+        }
+        .anh{
+            overflow: hidden;
+            width:367px;
+            height:500px;
+            top:84px;
+            left: 94px;
+            position: relative;
+        }
+        .anh img{
+            float: left;
+        }
+        button{
+            padding: 0;
+            float: left;
+            border: none;
+
+        }
+    </style>
+    <script src=" https://code.jquery.com/jquery-3.5.1.js " integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="main">
+        <img id="background" src="monster%20game%20project/images/lightning-01.jpg" width="100%">
+        <div id="center">
+            <div id="head">
+            <img src="monster%20game%20project/images/Monster_Mashup.png">
+            <h3>Make your own monster face by clicking on the picture</h3>
+        </div>
+        <div id="frame">
+            <div class="anh">
+            <button id="move_left1"><img class="anh1" src="monster%20game%20project/images/headsstrip.jpg"></button>
+            <button id="move_left2"><img class="anh2" src="monster%20game%20project/images/eyesstrip.jpg"></button>
+            <button id="move_left3"><img class="anh3" src="monster%20game%20project/images/nosesstrip.jpg"></button>
+            <button id="move_left4"><img class="anh4" src="monster%20game%20project/images/mouthsstrip.jpg"></button>
+            </div>
+        </div>
+        </div>
+    </div>
+<script>
+    var index=1;
+    changelmg=function (){
+        var background =["monster%20game%20project/images/lightning-01.jpg"];
+        document.getElementById('background').src=background[index];
+        index++;
+        if(index==2){
+            index=0;
+        }
+    }
+    setInterval(changelmg,500);
+    $(document).ready(function (){
+        $("#move_left1").click(function () {
+            $(".anh1").animate({
+                left: -367
+            }, 20);
+        });
+        $("#move_left2").click(function () {
+            $("#move_left2").animate({
+                left: 367
+            }, 20);
+        });
+        $("#move_left3").click(function () {
+            $("#move_left3").animate({
+                left: 367
+            }, 200);
+        });
+        $("#move_left4").click(function () {
+            $("#move_left4").animate({
+                left: 367
+            }, 200);
+        });
+    });
+</script>
+</body>
+</html>
