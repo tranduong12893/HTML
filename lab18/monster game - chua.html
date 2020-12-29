@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monster game</title>
+    <style type="text/css">
+    body{
+        background-color: #000000;
+    }
+    p{
+        color: #33ff66;
+        font-family: tohoma, vardana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+    }
+    #text-top{
+        position: relative;
+        z-index: 4;
+    }
+    #top{
+        position: absolute;
+        left: 191px;
+        top: 15px;
+        z-index: 4;
+    }
+    #container{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: 0;
+    }
+    .lightning{
+        display: none;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: 0;
+    }
+    #frame{
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        width: 545px;
+        height: 629px;
+        background-image: url("monster game project/images/frame.png");
+        z-index: 3;
+        overflow: hidden;
+    }
+    #pic_box{
+        position: relative;
+        left: 91px;
+        top: 84px;
+        width: 367px;
+        height: 460px;
+        z-index: 2;
+        overflow: hidden;
+    }
+    .face{
+        position: relative;
+        left: 0px;
+        top: 0px;
+        z-index: 1;
+    }
+    #head{
+        height: 172px;
+    }
+    #eyes{
+        height: 79px;
+    }
+    #nose{
+        height: 86px;
+    }
+    #mouth{
+        height: 117px;
+    }
+    </style>
+</head>
+<body>
+<header id="top">
+    <img id="text-top" src="monster%20game%20project/images/Monster_Mashup.png" />
+    <p>Make your own monster face by clicking on the picture.</p>
+</header>
+<div id="container">
+    <img src="monster%20game%20project/images/lightning-01.jpg" class="lightning" id="lightning1" />
+    <img src="monster%20game%20project/images/lightning-02.jpg" class="lightning" id="lightning2" />
+    <img src="monster%20game%20project/images/lightning-03.jpg" class="lightning" id="lightning3" />
+    <div id="frame">
+        <div id="pic_box">
+            <div id="head" class="face"><img src="monster%20game%20project/images/headsstrip.jpg"></div>
+            <div id="eyes" class="face"><img src="monster%20game%20project/images/eyesstrip.jpg"></div>
+            <div id="nose" class="face"><img src="monster%20game%20project/images/nosesstrip.jpg"></div>
+            <div id="mouth" class="face"><img src="monster%20game%20project/images/mouthsstrip.jpg"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.6.2.js"></script>
+<script>
+    $(document).ready(function () {
+        var headclik = 0, eyeclix = 0,noseclix = 0, mouthclix = 0;
+        lightning_one();
+        lightning_two();
+        lightning_three();
+
+        $("#head").click(function(){
+            if (headclik < 9){
+                $("#head").animate({left:"-=367px"},500);
+                headclik+=1;
+            }
+            else{
+                $("#head").animate({left:"0px"},500);
+                headclix = 0;
+            }
+        });
+        $("#eyes").click(function(){
+            if (eyeclix < 9){
+                $("#eyes").animate({left:"-=367px"},500);
+                eyeclix+=1;
+            }
+            else{
+                $("#eyes").animate({left:"0px"},500);
+                eyeclix = 0;
+            }
+        });
+        $("#nose").click(function(){
+            if (noseclix < 9){
+                $("#nose").animate({left:"-=367px"},500);
+                noseclix+=1;
+            }
+            else{
+                $("#nose").animate({left:"0px"},500);
+                noseclix = 0;
+            }
+        });
+        $("#mouth").click(function(){
+            if (mouthclix < 9){
+                $("#mouth").animate({left:"-=367px"},500);
+                mouthclix+=1;
+            }
+            else{
+                $("#mouth").animate({left:"0px"},500);
+                mouthclix = 0;
+            }
+        });
+
+    });
+    function lightning_one(){
+        $("#container #lightning1").fadeIn(250).fadeOut(250);
+        setTimeout("lightning_one()",4000);
+    };
+    function lightning_two(){
+        $("#container #lightning2").fadeIn("fast").fadeOut("fast");
+        setTimeout("lightning_two()",5000);
+    };
+    function lightning_three(){
+        $("#container #lightning3").fadeIn("fast").fadeOut("fast");
+        setTimeout("lightning_three()",7000);
+    };
+</script>
+</body>
+</html>
