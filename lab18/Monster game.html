@@ -32,6 +32,7 @@
             width: 100%;
             height: 745px;
             position: absolute;
+            
         }
         #frame{
             width: 546px;
@@ -44,9 +45,9 @@
             overflow: hidden;
             width:367px;
             height:500px;
-            top:84px;
+            top:180px;
             left: 94px;
-            position: relative;
+            position: absolute;
         }
         .anh img{
             float: left;
@@ -55,7 +56,6 @@
             padding: 0;
             float: left;
             border: none;
-
         }
     </style>
     <script src=" https://code.jquery.com/jquery-3.5.1.js " integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -70,10 +70,10 @@
         </div>
         <div id="frame">
             <div class="anh">
-            <button id="move_left1"><img class="anh1" src="monster%20game%20project/images/headsstrip.jpg"></button>
-            <button id="move_left2"><img class="anh2" src="monster%20game%20project/images/eyesstrip.jpg"></button>
-            <button id="move_left3"><img class="anh3" src="monster%20game%20project/images/nosesstrip.jpg"></button>
-            <button id="move_left4"><img class="anh4" src="monster%20game%20project/images/mouthsstrip.jpg"></button>
+            <button id="heads"><img class="anh1" src="monster%20game%20project/images/headsstrip.jpg"></button>
+            <button id="eye"><img class="anh2" src="monster%20game%20project/images/eyesstrip.jpg"></button>
+            <button id="nose"><img class="anh3" src="monster%20game%20project/images/nosesstrip.jpg"></button>
+            <button id="mouth"><img class="anh4" src="monster%20game%20project/images/mouthsstrip.jpg"></button>
             </div>
         </div>
         </div>
@@ -81,35 +81,23 @@
 <script>
     var index=1;
     changelmg=function (){
-        var background =["monster%20game%20project/images/lightning-01.jpg"];
+        var background =["monster%20game%20project/images/lightning-01.jpg","monster%20game%20project/images/lightning-03.jpg"];
         document.getElementById('background').src=background[index];
         index++;
         if(index==2){
             index=0;
         }
     }
-    setInterval(changelmg,500);
-    $(document).ready(function (){
-        $("#move_left1").click(function () {
-            $(".anh1").animate({
-                left: -367
-            }, 20);
-        });
-        $("#move_left2").click(function () {
-            $("#move_left2").animate({
-                left: 367
-            }, 20);
-        });
-        $("#move_left3").click(function () {
-            $("#move_left3").animate({
-                left: 367
-            }, 200);
-        });
-        $("#move_left4").click(function () {
-            $("#move_left4").animate({
-                left: 367
-            }, 200);
-        });
+     setInterval(changelmg,500);
+    $("#heads").click(function(){
+        if (headsclix < 9){
+            $("#heads").animate({left:"-=367px"},500);
+            headsclix+=1;
+        }
+        else{
+            $("#heads").animate({left:"0px"},500);
+            headsclix = 0;
+        }
     });
 </script>
 </body>
